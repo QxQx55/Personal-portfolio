@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Wendayew Fkadu - Software Student Portfolio highlighting skills, projects, and contact details."
+    />
+    <title>Wendayew Fkadu | Portfolio</title>
+    <style>
+      :root {
+        --bg: #050b14;
+        --bg-2: #0f172a;
+        --panel: rgba(15, 23, 42, 0.88);
+        --panel-soft: rgba(15, 23, 42, 0.72);
+        --text: #f8fafc;
+        --muted: #cbd5e1;
+        --muted-strong: #94a3b8;
+        --accent: #06b6d4;
+        --accent-2: #8b5cf6;
+        --accent-3: #38bdf8;
+        --border: rgba(255, 255, 255, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(6, 182, 212, 0.15), transparent 30%),
+          radial-gradient(circle at bottom right, rgba(139, 92, 246, 0.15), transparent 25%),
+          var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+        padding: 48px 24px;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        background: rgba(15, 23, 42, 0.9);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 30px 80px rgba(15, 23, 42, 0.55);
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        padding: 32px 40px 26px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .brand {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        width: fit-content;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: var(--accent-3);
+        background: rgba(56, 189, 248, 0.1);
+        border: 1px solid rgba(56, 189, 248, 0.2);
+      }
+
+      .name {
+        margin: 0;
+        font-size: clamp(2.2rem, 4vw, 3.75rem);
+        line-height: 1.04;
+        font-weight: 900;
+        letter-spacing: 0.04em;
+      }
+
+      .gradient {
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .role {
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.15rem;
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 12px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.9rem 1.4rem;
+        border-radius: 999px;
+        font-weight: 700;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition: 0.25s ease;
+      }
+
+      .button.primary {
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: var(--text);
+        box-shadow: 0 14px 32px rgba(6, 182, 212, 0.28);
+      }
+
+      .button.secondary {
+        background: rgba(255,255,255,0.03);
+        color: var(--text);
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+        text-decoration: none;
+      }
+
+      .content {
+        padding: 36px 40px 42px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.7fr 0.9fr;
+        gap: 24px;
+        align-items: stretch;
+        margin-bottom: 16px;
+      }
+
+      .card {
+        background: var(--panel-soft);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 24px 22px;
+      }
+
+      .card h2 {
+        margin: 0 0 12px;
+        color: var(--accent);
+        font-size: 1.3rem;
+      }
+
+      .lead {
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.03rem;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .stat {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 18px 16px;
+        text-align: center;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: clamp(1.5rem, 2vw, 2.2rem);
+        margin-bottom: 4px;
+      }
+
+      .stat span {
+        color: var(--muted-strong);
+        font-size: 0.9rem;
+      }
+
+      .section {
+        margin-top: 18px;
+      }
+
+      .section-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 999px;
+        padding: 8px 14px;
+        color: var(--text);
+        font-size: 0.9rem;
+      }
+
+      .list {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--muted);
+      }
+
+      .list li + li {
+        margin-top: 8px;
+      }
+
+      .project-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 14px;
+      }
+
+      .project {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 18px 18px 16px;
+      }
+
+      .project h3 {
+        margin: 0 0 8px;
+        font-size: 1.1rem;
+      }
+
+      .project p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .contact-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px 22px;
+        margin-top: 14px;
+        color: var(--muted);
+      }
+
+      .contact-item {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 10px 14px;
+      }
+
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        margin-top: 26px;
+        padding-top: 18px;
+        border-top: 1px solid var(--border);
+        color: var(--muted-strong);
+      }
+
+      @media (max-width: 760px) {
+        body {
+          padding: 24px 14px;
+        }
+
+        .header,
+        .content {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+
+        .header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .cta-row {
+          justify-content: flex-start;
+        }
+
+        .hero,
+        .section-grid,
+        .project-list {
+          grid-template-columns: 1fr;
+        }
+
+        .stats {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .footer {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="brand">
+          <span class="eyebrow">Software Student</span>
+          <h1 class="name"><span class="gradient">WENDAYEW FKADU</span></h1>
+          <p class="role">4th Year Software Engineering Student</p>
+        </div>
+
+        <div class="cta-row">
+          <a class="button primary" href="mailto:Wen1260h@gmail.com">Contact Me</a>
+          <a class="button secondary" href="https://github.com/QxQx55" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="hero">
+          <div class="card">
+            <h2>About</h2>
+            <p class="lead">
+              Passionate about building elegant, scalable digital products across web, mobile, and backend systems.
+              I enjoy transforming ideas into polished software experiences with strong attention to performance,
+              architecture, and user-centered design.
+            </p>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>4+</strong>
+              <span>years learning</span>
+            </div>
+            <div class="stat">
+              <strong>10+</strong>
+              <span>tech skills</span>
+            </div>
+            <div class="stat">
+              <strong>Web</strong>
+              <span>frontend focus</span>
+            </div>
+            <div class="stat">
+              <strong>Mobile</strong>
+              <span>app workflows</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section section-grid">
+          <div class="card">
+            <h2>Core Skills</h2>
+            <div class="skills">
+              <span class="chip">HTML5</span>
+              <span class="chip">CSS3</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">React</span>
+              <span class="chip">Flutter</span>
+              <span class="chip">Firebase</span>
+              <span class="chip">Node.js</span>
+              <span class="chip">Python</span>
+              <span class="chip">Java</span>
+              <span class="chip">C++</span>
+              <span class="chip">SQL</span>
+              <span class="chip">MySQL</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2>Project Focus</h2>
+            <ul class="list">
+              <li>Responsive web application design and frontend implementation</li>
+              <li>Mobile-first interfaces and clean user experience flows</li>
+              <li>Backend logic, architecture thinking, and efficient problem solving</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section card">
+          <h2>Selected Work</h2>
+          <div class="project-list">
+            <article class="project">
+              <h3>Portfolio & Personal Brand</h3>
+              <p>
+                Crafted a modern digital profile with a strong visual identity, custom styling, and accessible UI patterns.
+              </p>
+            </article>
+            <article class="project">
+              <h3>Web Product Interfaces</h3>
+              <p>
+                Focused on intuitive product experiences, responsive layouts, and clean component architecture.
+              </p>
+            </article>
+            <article class="project">
+              <h3>Mobile App Experiences</h3>
+              <p>
+                Designed streamlined app flows with user-friendly interactions and smooth navigation.
+              </p>
+            </article>
+            <article class="project">
+              <h3>System Design Thinking</h3>
+              <p>
+                Explored scalable backend patterns and data structures to solve real-world engineering problems.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section card">
+          <h2>Contact</h2>
+          <div class="contact-grid">
+            <div class="contact-item">Email: <a href="mailto:Wen1260h@gmail.com">Wen1260h@gmail.com</a></div>
+            <div class="contact-item">GitHub: <a href="https://github.com/QxQx55" target="_blank" rel="noreferrer">github.com/QxQx55</a></div>
+            <div class="contact-item">LinkedIn: <a href="https://www.linkedin.com/in/wendayew-fkadu-451483440/" target="_blank" rel="noreferrer">linkedin.com/in/wendayew-fkadu-451483440</a></div>
+          </div>
+        </section>
+
+        <footer class="footer">
+          <span>Open to software engineering opportunities</span>
+          <span>Available for collaboration</span>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>
