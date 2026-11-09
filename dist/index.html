@@ -14,5 +14,30 @@
 </head>
 <body>
     <div id="root"></div>
+    <script>
+      const root = document.getElementById("root");
+      const documentLinksObserver = new MutationObserver(() => {
+        const heroButtons = root.querySelector(".hero-buttons");
+        if (!heroButtons) return;
+
+        const documents = [
+          ["Wendayew-Fkadu-Resume.pdf", "Download Resume"],
+          ["Wendayew-Fkadu-Motivation-Letter.pdf", "Motivation Letter"]
+        ];
+
+        documents.forEach(([file, label]) => {
+          const link = document.createElement("a");
+          link.href = `/${file}`;
+          link.download = file;
+          link.className = "btn btn-secondary";
+          link.textContent = label;
+          heroButtons.appendChild(link);
+        });
+
+        documentLinksObserver.disconnect();
+      });
+
+      documentLinksObserver.observe(root, { childList: true, subtree: true });
+    </script>
 </body>
 </html>
