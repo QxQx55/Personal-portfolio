@@ -5,455 +5,1407 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Wendayew Fkadu - Software Student Portfolio highlighting skills, projects, and contact details."
+      content="Wendayew Fkadu — 4th year software engineering student building scalable web, mobile and backend systems."
     />
-    <title>Wendayew Fkadu | Portfolio</title>
+    <title>Wendayew Fkadu — Software Engineer</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Wendayew Fkadu — Software Engineer" />
+    <meta
+      property="og:description"
+      content="Passionate about creating scalable, premium software architectures across web, mobile and backend."
+    />
+    <meta property="og:image" content="/opengraph.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
-        --bg: #050b14;
-        --bg-2: #0f172a;
-        --panel: rgba(15, 23, 42, 0.88);
-        --panel-soft: rgba(15, 23, 42, 0.72);
-        --text: #f8fafc;
-        --muted: #cbd5e1;
-        --muted-strong: #94a3b8;
-        --accent: #06b6d4;
-        --accent-2: #8b5cf6;
-        --accent-3: #38bdf8;
-        --border: rgba(255, 255, 255, 0.08);
+        --ink: #0b0b0a;
+        --ink-2: #111110;
+        --line: #2b2b28;
+        --line-soft: #3a3a36;
+        --text: #f1f1ec;
+        --muted: #a5a5a0;
+        --muted-dim: #6f6f6a;
+        --gold: #e8c268;
+        --blue: #3f8cff;
+        --blue-deep: #16345c;
+        --edge: clamp(24px, 6vw, 120px);
       }
 
-      * {
+      *,
+      *::before,
+      *::after {
         box-sizing: border-box;
       }
 
       html {
-        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
       }
 
       body {
         margin: 0;
-        font-family: Arial, sans-serif;
-        background:
-          radial-gradient(circle at top left, rgba(6, 182, 212, 0.15), transparent 30%),
-          radial-gradient(circle at bottom right, rgba(139, 92, 246, 0.15), transparent 25%),
-          var(--bg);
+        background: var(--ink);
         color: var(--text);
-        line-height: 1.7;
-        padding: 48px 24px;
+        font-family: "Outfit", system-ui, -apple-system, "Segoe UI", sans-serif;
+        font-size: 14px;
+        line-height: 1.62;
+        font-weight: 400;
+        letter-spacing: 0.005em;
+        -webkit-font-smoothing: antialiased;
       }
 
       a {
-        color: var(--accent);
+        color: inherit;
         text-decoration: none;
+        cursor: pointer;
       }
 
-      a:hover {
-        text-decoration: underline;
+      img {
+        display: block;
+        max-width: 100%;
       }
 
-      .container {
-        max-width: 1100px;
+      .mono {
+        font-family: "Fira Code", ui-monospace, "SFMono-Regular", monospace;
+        font-size: 0.92em;
+        letter-spacing: 0;
+      }
+
+      /* ---------------- page shell: 3 columns ---------------- */
+
+      .page {
+        display: grid;
+        grid-template-columns: minmax(280px, 400px) minmax(0, 1fr) 92px;
+        gap: 36px;
+        padding: 148px var(--edge) 0;
+        max-width: 1920px;
         margin: 0 auto;
-        background: rgba(15, 23, 42, 0.9);
-        border: 1px solid var(--border);
-        border-radius: 24px;
-        overflow: hidden;
-        box-shadow: 0 30px 80px rgba(15, 23, 42, 0.55);
+        align-items: start;
       }
 
-      .header {
+      /* ---------------- left rail ---------------- */
+
+      .profile {
+        padding: 0 0 48px;
+        min-width: 0;
+      }
+
+      .profile-head {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        margin-bottom: 18px;
+      }
+
+      .avatar {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        flex: none;
+        object-fit: cover;
+        object-position: 50% 26%;
+        border: 1px solid rgba(232, 194, 104, 0.4);
+        filter: saturate(0.9);
+      }
+
+      .profile-name {
+        margin: 0;
+        font-size: 26px;
+        line-height: 1.04;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+      }
+
+      .profile-role {
+        margin: 16px 0 0;
+        font-size: 14px;
+        color: #d3d3cc;
+      }
+
+      .bio {
+        margin: 26px 0 0;
+        font-size: 14px;
+        color: #d0d0c9;
+        max-width: 46ch;
+      }
+
+      .bio strong {
+        color: var(--text);
+        font-weight: 500;
+      }
+
+      .stack-line {
+        margin: 14px 0 0;
+        font-size: 13px;
+        color: #b6b6af;
+        line-height: 1.9;
+      }
+
+      .stack-line span {
+        color: #ebebe5;
+      }
+
+      .cta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        width: 100%;
+        margin-top: 26px;
+        padding: 15px 20px;
+        background: #eaeae4;
+        color: #0b0b0a;
+        border-radius: 2px;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+
+      .dotted {
+        margin-top: 12px;
+        border: 1px dotted var(--line-soft);
+        border-radius: 2px;
+        padding: 14px 14px;
+        font-size: 13px;
+        color: #cfcfc8;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 24px;
-        padding: 32px 40px 26px;
-        border-bottom: 1px solid var(--border);
-      }
-
-      .brand {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .eyebrow {
-        display: inline-block;
-        width: fit-content;
-        padding: 6px 12px;
-        border-radius: 999px;
-        font-size: 0.72rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        font-weight: 700;
-        color: var(--accent-3);
-        background: rgba(56, 189, 248, 0.1);
-        border: 1px solid rgba(56, 189, 248, 0.2);
-      }
-
-      .name {
-        margin: 0;
-        font-size: clamp(2.2rem, 4vw, 3.75rem);
-        line-height: 1.04;
-        font-weight: 900;
-        letter-spacing: 0.04em;
-      }
-
-      .gradient {
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-
-      .role {
-        margin: 0;
-        color: var(--muted);
-        font-size: 1.15rem;
-      }
-
-      .cta-row {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-end;
         gap: 12px;
       }
 
-      .button {
-        display: inline-flex;
+      .dotted .key {
+        color: var(--muted-dim);
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        flex: none;
+      }
+
+      .dotted a {
+        color: var(--text);
+      }
+
+      .credentials {
+        margin: 26px 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 11px;
+        font-size: 13px;
+        color: #cdcdc6;
+      }
+
+      .credentials li {
+        display: flex;
         align-items: center;
-        justify-content: center;
-        padding: 0.9rem 1.4rem;
-        border-radius: 999px;
-        font-weight: 700;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        transition: 0.25s ease;
+        gap: 9px;
       }
 
-      .button.primary {
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      .credentials svg {
+        width: 13px;
+        height: 13px;
+        flex: none;
+        color: var(--gold);
+      }
+
+      .block-head {
+        margin: 40px 0 0;
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+        font-size: 10.5px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
         color: var(--text);
-        box-shadow: 0 14px 32px rgba(6, 182, 212, 0.28);
+        font-weight: 500;
       }
 
-      .button.secondary {
-        background: rgba(255,255,255,0.03);
-        color: var(--text);
-      }
-
-      .button:hover {
-        transform: translateY(-2px);
-        text-decoration: none;
-      }
-
-      .content {
-        padding: 36px 40px 42px;
-      }
-
-      .hero {
-        display: grid;
-        grid-template-columns: 1.7fr 0.9fr;
-        gap: 24px;
-        align-items: stretch;
-        margin-bottom: 16px;
-      }
-
-      .card {
-        background: var(--panel-soft);
-        border: 1px solid var(--border);
-        border-radius: 20px;
-        padding: 24px 22px;
-      }
-
-      .card h2 {
-        margin: 0 0 12px;
-        color: var(--accent);
-        font-size: 1.3rem;
-      }
-
-      .lead {
-        margin: 0;
-        color: var(--muted);
-        font-size: 1.03rem;
-      }
-
-      .stats {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 14px;
-      }
-
-      .stat {
-        background: rgba(255,255,255,0.03);
-        border: 1px solid var(--border);
-        border-radius: 18px;
-        padding: 18px 16px;
-        text-align: center;
-      }
-
-      .stat strong {
-        display: block;
-        font-size: clamp(1.5rem, 2vw, 2.2rem);
-        margin-bottom: 4px;
-      }
-
-      .stat span {
-        color: var(--muted-strong);
-        font-size: 0.9rem;
-      }
-
-      .section {
-        margin-top: 18px;
-      }
-
-      .section-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 24px;
-      }
-
-      .skills {
+      .rating {
+        margin: 10px 0 0;
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
-      }
-
-      .chip {
-        display: inline-flex;
         align-items: center;
-        background: rgba(255,255,255,0.04);
-        border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 999px;
-        padding: 8px 14px;
-        color: var(--text);
-        font-size: 0.9rem;
-      }
-
-      .list {
-        margin: 0;
-        padding-left: 18px;
+        gap: 8px;
+        font-size: 12.5px;
         color: var(--muted);
       }
 
-      .list li + li {
-        margin-top: 8px;
+      .rating .mark {
+        color: var(--gold);
+        letter-spacing: 1px;
+        font-size: 11px;
       }
 
-      .project-list {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 18px;
+      .pager {
         margin-top: 14px;
-      }
-
-      .project {
-        background: rgba(255,255,255,0.03);
-        border: 1px solid var(--border);
-        border-radius: 18px;
-        padding: 18px 18px 16px;
-      }
-
-      .project h3 {
-        margin: 0 0 8px;
-        font-size: 1.1rem;
-      }
-
-      .project p {
-        margin: 0;
-        color: var(--muted);
-      }
-
-      .contact-grid {
         display: flex;
-        flex-wrap: wrap;
-        gap: 14px 22px;
-        margin-top: 14px;
-        color: var(--muted);
+        align-items: center;
+        gap: 8px;
+        font-size: 11px;
+        color: var(--muted-dim);
       }
 
-      .contact-item {
-        background: rgba(255,255,255,0.03);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 10px 14px;
+      .pager span {
+        width: 24px;
+        height: 24px;
+        border: 1px solid var(--line-soft);
+        display: grid;
+        place-items: center;
+        font-size: 10px;
       }
 
-      .footer {
+      .pager .count {
+        width: auto;
+        border: 0;
+        letter-spacing: 0.1em;
+        padding: 0 2px;
+      }
+
+      /* ---------------- centre stage ---------------- */
+
+      .stage {
+        position: relative;
+        margin-top: 0;
+        min-height: clamp(620px, 76vh, 842px);
+        border-left: 1px solid rgba(232, 194, 104, 0.28);
+        border-right: 1px solid rgba(232, 194, 104, 0.28);
+        background: #0a0b0e;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        overflow: hidden;
+        isolation: isolate;
+      }
+
+      /* full-bleed poster photo sitting behind the whole stage */
+
+      .media-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background-image: url("/assets/wf-portrait.jpg");
+        background-size: cover;
+        background-position: 66% 14%;
+        transform: scale(1.04);
+        filter: grayscale(0.22) contrast(1.04) brightness(0.92) saturate(0.98);
+      }
+
+      .media-bg::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            108% 90% at 10% 6%,
+            rgba(7, 8, 11, 0.86),
+            rgba(7, 8, 11, 0.4) 46%,
+            transparent 76%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(7, 8, 11, 0.66),
+            rgba(7, 8, 11, 0.04) 36%,
+            rgba(7, 8, 11, 0.18) 66%,
+            rgba(7, 8, 11, 0.82) 100%
+          ),
+          linear-gradient(102deg, rgba(63, 140, 255, 0.22), transparent 46%, rgba(232, 194, 104, 0.3));
+      }
+
+      .media-fx {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background-image:
+          repeating-linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.045) 0 1px,
+            transparent 1px 4px
+          ),
+          radial-gradient(122% 118% at 50% 46%, transparent 56%, rgba(3, 4, 6, 0.5) 100%);
+        opacity: 0.42;
+      }
+
+      .stage-top {
+        position: relative;
+        z-index: 4;
         display: flex;
         justify-content: space-between;
         align-items: center;
         gap: 16px;
-        margin-top: 26px;
-        padding-top: 18px;
-        border-top: 1px solid var(--border);
-        color: var(--muted-strong);
+        padding: 16px 40px 0;
+        font-size: 10.5px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--text);
+        text-shadow: 0 1px 12px rgba(0, 0, 0, 0.8);
       }
 
-      @media (max-width: 760px) {
-        body {
-          padding: 24px 14px;
+      .playback {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .playback .tri {
+        width: 0;
+        height: 0;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 8px solid var(--gold);
+      }
+
+      .timecode {
+        color: var(--muted-dim);
+        letter-spacing: 0.06em;
+      }
+
+      .tabs {
+        position: relative;
+        z-index: 4;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px 32px;
+        padding: 16px 40px 0;
+        font-size: 10.5px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(241, 241, 236, 0.6);
+        text-shadow: 0 1px 12px rgba(0, 0, 0, 0.8);
+      }
+
+      .tabs .current {
+        color: var(--text);
+        border: 1px solid var(--line-soft);
+        border-radius: 999px;
+        padding: 3px 10px;
+      }
+
+      .art {
+        position: relative;
+        z-index: 2;
+        flex: 1;
+        min-height: clamp(420px, 58vh, 620px);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 26px 34px 38px;
+        container-type: inline-size;
+      }
+
+      .art-body {
+        position: relative;
+        z-index: 2;
+        max-width: calc(100% - clamp(170px, 26cqw, 330px));
+      }
+
+      .hero-kicker {
+        margin: 0;
+        font-size: 9.5px;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      .hero-type {
+        margin: 12px 0 0;
+        font-size: clamp(38px, 10.4cqw, 116px);
+        line-height: 0.84;
+        font-weight: 800;
+        letter-spacing: -0.045em;
+        text-transform: uppercase;
+        color: #f7f5ed;
+        text-shadow: 0 24px 70px rgba(0, 0, 0, 0.75);
+      }
+
+      .hero-type span {
+        display: block;
+      }
+
+      .hero-rule {
+        width: 96px;
+        height: 2px;
+        margin: 20px 0 16px;
+        background: var(--gold);
+      }
+
+      .hero-line {
+        margin: 0;
+        font-size: 12.5px;
+        line-height: 1.7;
+        color: rgba(241, 241, 236, 0.78);
+        max-width: 34ch;
+      }
+
+      .corner {
+        position: absolute;
+        z-index: 3;
+        width: 16px;
+        height: 16px;
+        border: 1px solid rgba(232, 194, 104, 0.4);
+      }
+
+      .corner.tl { top: 16px; left: 16px; border-right: 0; border-bottom: 0; }
+      .corner.tr { top: 16px; right: 16px; border-left: 0; border-bottom: 0; }
+      .corner.bl { bottom: 16px; left: 16px; border-right: 0; border-top: 0; }
+      .corner.br { bottom: 16px; right: 16px; border-left: 0; border-top: 0; }
+
+      .inset {
+        display: none;
+      }
+
+      .inset::before,
+      .inset::after {
+        content: "";
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        border: 1px solid #16130b;
+      }
+
+      .inset::before { top: -1px; left: -1px; border-right: 0; border-bottom: 0; }
+      .inset::after { bottom: -1px; right: -1px; border-left: 0; border-top: 0; }
+
+      .inset-photo {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(20, 16, 8, 0.55);
+        background: var(--blue-deep);
+      }
+
+      .inset-photo img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        object-position: 50% 24%;
+        filter: saturate(0.94) contrast(1.04) brightness(1.06);
+      }
+
+      .inset-photo::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, rgba(22, 52, 92, 0.18), transparent 48%, rgba(10, 12, 16, 0.34)),
+          radial-gradient(70% 60% at 50% 10%, rgba(63, 140, 255, 0.16), transparent 62%);
+        pointer-events: none;
+      }
+
+      .grain {
+        position: absolute;
+        inset: 0;
+        opacity: 0.14;
+        mix-blend-mode: overlay;
+        background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+
+      .inset-cap {
+        padding: 10px 4px 4px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 8px;
+        font-size: 8.5px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #2a2312;
+        line-height: 1.5;
+      }
+
+      .inset-cap .who {
+        color: #15120a;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+      }
+
+      .inset-cap .dim {
+        color: #4d4126;
+      }
+
+      .sticker {
+        position: absolute;
+        left: -30px;
+        top: -34px;
+        z-index: 3;
+        width: 92px;
+        height: 92px;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        font-size: 8px;
+        font-weight: 600;
+        line-height: 1.35;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #14130f;
+        background: #f3e3b8;
+        clip-path: polygon(
+          50% 0%, 61% 12%, 76% 6%, 80% 22%, 96% 26%, 90% 41%, 100% 50%, 90% 59%,
+          96% 74%, 80% 78%, 76% 94%, 61% 88%, 50% 100%, 39% 88%, 24% 94%, 20% 78%,
+          4% 74%, 10% 59%, 0% 50%, 10% 41%, 4% 26%, 20% 22%, 24% 6%, 39% 12%
+        );
+        transform: rotate(9deg);
+        padding: 18px;
+      }
+
+      .tag {
+        position: absolute;
+        left: -22px;
+        bottom: -20px;
+        z-index: 4;
+        display: grid;
+        place-items: center;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: #f3e3b8;
+        color: #14130f;
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-align: center;
+        line-height: 1.2;
+        transform: rotate(-8deg);
+      }
+
+      .stage-foot {
+        position: relative;
+        z-index: 4;
+        display: flex;
+        justify-content: center;
+        padding: 16px 18px 18px;
+        border-top: 1px solid rgba(255, 255, 255, 0.09);
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: rgba(241, 241, 236, 0.62);
+        text-shadow: 0 1px 10px rgba(0, 0, 0, 0.8);
+      }
+
+      /* ---------------- right action rail ---------------- */
+
+      .rail {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 26px;
+        padding-top: 84px;
+      }
+
+      .rail-item {
+        display: grid;
+        justify-items: center;
+        gap: 6px;
+        width: 100%;
+      }
+
+      .rail-btn {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        border: 1px solid var(--line-soft);
+        display: grid;
+        place-items: center;
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .rail-btn svg {
+        width: 15px;
+        height: 15px;
+      }
+
+      .rail-btn.solid {
+        background: var(--blue);
+        border-color: var(--blue);
+        color: #fff;
+      }
+
+      .rail-label {
+        font-size: 9.5px;
+        letter-spacing: 0.08em;
+        color: var(--muted-dim);
+        text-align: center;
+      }
+
+      /* ---------------- sections below the fold ---------------- */
+
+      .section {
+        padding: 78px var(--edge);
+        border-top: 1px solid var(--line);
+        max-width: 1920px;
+        margin: 0 auto;
+      }
+
+      .eyebrow {
+        font-size: 10.5px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin: 0 0 14px;
+      }
+
+      .section-title {
+        margin: 0 0 8px;
+        font-size: clamp(28px, 3.4vw, 46px);
+        line-height: 1.06;
+        font-weight: 600;
+        letter-spacing: -0.025em;
+      }
+
+      .section-note {
+        margin: 0 0 34px;
+        color: var(--muted);
+        max-width: 58ch;
+      }
+
+      .filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 26px;
+      }
+
+      .filters span {
+        font-size: 10px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--muted-dim);
+        border: 1px solid var(--line-soft);
+        padding: 5px 12px;
+      }
+
+      .filters .on {
+        color: #0b0b0a;
+        background: var(--text);
+        border-color: var(--text);
+      }
+
+      .work {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+        gap: 1px;
+        background: var(--line);
+        border: 1px solid var(--line);
+      }
+
+      .work-visual {
+        position: relative;
+        min-height: 320px;
+        background: linear-gradient(135deg, #f5b14d 0%, #d06d3f 50%, #4b2443 100%);
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+      }
+
+      .work-visual .num {
+        font-size: clamp(64px, 9vw, 128px);
+        font-weight: 300;
+        letter-spacing: -0.04em;
+        color: rgba(11, 11, 10, 0.82);
+        line-height: 1;
+      }
+
+      .work-visual .cap {
+        position: absolute;
+        left: 20px;
+        bottom: 18px;
+        font-size: 9.5px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(11, 11, 10, 0.72);
+      }
+
+      .work-visual .badge {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        font-size: 9.5px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #14130f;
+        border: 1px solid rgba(11, 11, 10, 0.5);
+        padding: 4px 9px;
+      }
+
+      .work-body {
+        background: var(--ink-2);
+        padding: 28px 26px 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .work-tech {
+        font-family: "Fira Code", monospace;
+        font-size: 10.5px;
+        letter-spacing: 0.06em;
+        color: var(--gold);
+      }
+
+      .work-body h3 {
+        margin: 0;
+        font-size: 21px;
+        font-weight: 600;
+        letter-spacing: -0.015em;
+        line-height: 1.25;
+      }
+
+      .work-body p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        max-width: 42ch;
+      }
+
+      .work-link {
+        margin-top: auto;
+        padding-top: 14px;
+        font-size: 10px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--text);
+      }
+
+      .work-link span {
+        color: var(--gold);
+      }
+
+      .skills {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1px;
+        background: var(--line);
+        border: 1px solid var(--line);
+      }
+
+      .skill-group {
+        background: var(--ink-2);
+        padding: 24px 22px 26px;
+      }
+
+      .skill-group h3 {
+        margin: 0 0 16px;
+        font-size: 10.5px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted-dim);
+        font-weight: 500;
+      }
+
+      .skill-group ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 9px;
+        font-size: 13px;
+      }
+
+      .skill-group li {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+      }
+
+      .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        flex: none;
+        background: var(--dot);
+      }
+
+      .docs {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        max-width: 780px;
+      }
+
+      .contact {
+        display: grid;
+        gap: 10px;
+        max-width: 660px;
+      }
+
+      .contact .dotted {
+        margin-top: 0;
+      }
+
+      .socials {
+        display: flex;
+        gap: 10px;
+        margin-top: 26px;
+      }
+
+      .socials a {
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--line-soft);
+        display: grid;
+        place-items: center;
+        color: var(--text);
+      }
+
+      .socials svg {
+        width: 15px;
+        height: 15px;
+      }
+
+      .closing {
+        padding: 84px var(--edge) 60px;
+        border-top: 1px solid var(--line);
+        max-width: 1920px;
+        margin: 0 auto;
+      }
+
+      .closing h2 {
+        margin: 0 0 10px;
+        font-size: clamp(30px, 4vw, 56px);
+        line-height: 1.04;
+        font-weight: 600;
+        letter-spacing: -0.03em;
+        max-width: 18ch;
+      }
+
+      .closing p {
+        margin: 0;
+        color: var(--muted);
+        max-width: 46ch;
+      }
+
+      .closing-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 26px;
+      }
+
+      .btn-line {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 20px;
+        font-size: 10.5px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        border: 1px solid var(--line-soft);
+        color: var(--text);
+      }
+
+      .btn-line.fill {
+        background: var(--text);
+        color: #0b0b0a;
+        border-color: var(--text);
+        font-weight: 600;
+      }
+
+      footer {
+        padding: 30px var(--edge) 44px;
+        border-top: 1px solid var(--line);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+        font-size: 10.5px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted-dim);
+        max-width: 1920px;
+        margin: 0 auto;
+      }
+
+      /* ---------------- responsive (layout only, no interaction) ---------------- */
+
+      @media (max-width: 1180px) {
+        .page {
+          grid-template-columns: minmax(0, 1fr) 78px;
+          gap: 28px;
+          padding: 56px var(--edge) 0;
         }
 
-        .header,
-        .content {
-          padding-left: 20px;
-          padding-right: 20px;
+        .profile { grid-column: 1; }
+        .stage { grid-column: 1; }
+
+        .rail {
+          grid-column: 2;
+          grid-row: 1 / span 2;
+          padding-top: 40px;
+          gap: 18px;
         }
 
-        .header {
-          flex-direction: column;
-          align-items: flex-start;
+        .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      }
+
+      @media (max-width: 900px) {
+        .work { grid-template-columns: minmax(0, 1fr); }
+        .work-visual { min-height: 240px; }
+      }
+
+      @media (max-width: 820px) {
+        .page {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 26px;
+          padding-top: 36px;
         }
 
-        .cta-row {
+        .profile { padding-bottom: 8px; }
+
+        .rail {
+          grid-column: 1;
+          grid-row: auto;
+          flex-direction: row;
+          flex-wrap: wrap;
           justify-content: flex-start;
+          gap: 18px 22px;
+          padding: 20px 0 10px;
+          border-top: 1px solid var(--line);
         }
 
-        .hero,
-        .section-grid,
-        .project-list {
-          grid-template-columns: 1fr;
+        .rail-item { width: auto; }
+
+        .skills,
+        .docs { grid-template-columns: minmax(0, 1fr); }
+
+        .section {
+          padding-top: 52px;
+          padding-bottom: 52px;
         }
 
-        .stats {
-          grid-template-columns: 1fr 1fr;
+        .stage {
+          min-height: 0;
         }
 
-        .footer {
-          flex-direction: column;
-          align-items: flex-start;
+        .stage-top {
+          padding: 14px 24px 0;
+        }
+
+        .tabs {
+          padding: 12px 24px 0;
+        }
+
+        .art {
+          min-height: 0;
+          padding: 28px 24px 32px;
+        }
+
+        .art-body {
+          max-width: 100%;
+        }
+
+        .hero-type {
+          font-size: clamp(44px, 15vw, 92px);
+        }
+
+        .inset {
+          position: relative;
+          right: auto;
+          top: auto;
+          order: -1;
+          align-self: flex-start;
+          width: min(48%, 200px);
+          margin: 30px 0 34px;
+          transform: rotate(-2deg);
+        }
+
+        .corner {
+          display: none;
+        }
+
+        .sticker {
+          left: -20px;
+          top: -26px;
+          width: 72px;
+          height: 72px;
+          font-size: 7px;
+          padding: 13px;
+        }
+
+        .tag {
+          left: -16px;
+          bottom: -16px;
+          width: 44px;
+          height: 44px;
+          font-size: 8px;
         }
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <header class="header">
-        <div class="brand">
-          <span class="eyebrow">Software Student</span>
-          <h1 class="name"><span class="gradient">WENDAYEW FKADU</span></h1>
-          <p class="role">4th Year Software Engineering Student</p>
+    <div class="page">
+      <!-- LEFT RAIL -->
+      <aside class="profile">
+        <div class="profile-head">
+          <img
+            class="avatar"
+            src="/assets/wf-avatar.jpg"
+            width="52"
+            height="52"
+            alt="Wendayew Fkadu"
+          />
+          <h1 class="profile-name">Wendayew<br />Fkadu</h1>
         </div>
 
-        <div class="cta-row">
-          <a class="button primary" href="mailto:Wen1260h@gmail.com">Contact Me</a>
-          <a class="button secondary" href="https://github.com/QxQx55" target="_blank" rel="noreferrer">GitHub</a>
-        </div>
-      </header>
+        <p class="profile-role">4th Year Software Engineering Student</p>
 
-      <main class="content">
-        <section class="hero">
-          <div class="card">
-            <h2>About</h2>
-            <p class="lead">
-              Passionate about building elegant, scalable digital products across web, mobile, and backend systems.
-              I enjoy transforming ideas into polished software experiences with strong attention to performance,
-              architecture, and user-centered design.
+        <p class="bio">
+          Passionate about creating <strong>scalable, premium software architectures</strong>.
+          Bringing ideas to life across web, mobile, and backend technologies.
+        </p>
+
+        <p class="stack-line">
+          I build systems using
+          <span class="mono">HTML &amp; CSS · JavaScript · React · Flutter · Python · Java · SQL · C++</span>
+        </p>
+
+        <a class="cta" href="mailto:Wen1260h@gmail.com">Say hello <span aria-hidden="true">→</span></a>
+
+        <div class="dotted">
+          <span class="key">Email</span>
+          <a href="mailto:Wen1260h@gmail.com">Wen1260h@gmail.com</a>
+        </div>
+
+        <div class="dotted">
+          <span class="key">Status</span>
+          <span>Open to software roles</span>
+        </div>
+
+        <div class="dotted">
+          <span class="key">Résumé</span>
+          <a href="/Wendayew-Fkadu-Resume.pdf" download>Download CV ↓</a>
+        </div>
+
+        <ul class="credentials">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <circle cx="12" cy="9" r="5.2" />
+              <path d="M8 13.5 6.5 22l5.5-2.6L17.5 22 16 13.5" />
+            </svg>
+            4th year · software engineering
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h10" />
+            </svg>
+            Frontend · Mobile &amp; Data · Backend
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <path d="M12 3.5 21 8v8l-9 4.5L3 16V8z" />
+              <path d="M3 8l9 4.5L21 8" />
+            </svg>
+            Shipped: 5-Star Hotel Management System
+          </li>
+        </ul>
+
+        <h2 class="block-head">My Technical Setup</h2>
+        <p class="rating">
+          <span class="mark" aria-hidden="true">◆ ◆ ◆</span>
+          <span>3 stacks · 14 tools · 1 shipped product</span>
+        </p>
+        <div class="pager" aria-hidden="true">
+          <span>←</span>
+          <span class="count">01 / 03</span>
+          <span>→</span>
+        </div>
+      </aside>
+
+      <!-- CENTRE STAGE -->
+      <main class="stage">
+        <div class="media-bg" aria-hidden="true"></div>
+        <span class="media-fx" aria-hidden="true"></span>
+        <span class="corner tl" aria-hidden="true"></span>
+        <span class="corner tr" aria-hidden="true"></span>
+        <span class="corner bl" aria-hidden="true"></span>
+        <span class="corner br" aria-hidden="true"></span>
+
+        <div class="stage-top">
+          <span class="playback">
+            <span class="tri" aria-hidden="true"></span>
+            Play
+            <span class="timecode mono">00:01:3</span>
+          </span>
+          <span class="mono">A1</span>
+        </div>
+
+        <nav class="tabs" aria-label="Sections">
+          <span class="current">All work</span>
+          <a href="#work">Web</a>
+          <a href="#work">App</a>
+          <a href="#work">System</a>
+          <a href="#skills">Stack</a>
+          <a href="https://github.com/QxQx55" target="_blank" rel="noreferrer">GitHub</a>
+        </nav>
+
+        <div class="art">
+          <div class="art-body">
+            <p class="hero-kicker">Wendayew Fkadu · Software Engineer</p>
+            <h2 class="hero-type"><span>Wendayew</span><span>Fkadu</span></h2>
+            <div class="hero-rule" aria-hidden="true"></div>
+            <p class="hero-line">
+              Building scalable web, mobile and backend systems — from hotel operations
+              platforms to cross-platform apps.
             </p>
           </div>
 
-          <div class="stats">
-            <div class="stat">
-              <strong>4+</strong>
-              <span>years learning</span>
+          <div class="inset">
+            <div class="inset-photo">
+              <img
+                src="/assets/wf-card.jpg"
+                width="640"
+                height="800"
+                alt="Portrait of Wendayew Fkadu"
+              />
+              <span class="grain" aria-hidden="true"></span>
             </div>
-            <div class="stat">
-              <strong>10+</strong>
-              <span>tech skills</span>
+            <div class="inset-cap">
+              <span class="who">Wendayew Fkadu</span>
+              <span class="dim">Software<br />Student</span>
             </div>
-            <div class="stat">
-              <strong>Web</strong>
-              <span>frontend focus</span>
-            </div>
-            <div class="stat">
-              <strong>Mobile</strong>
-              <span>app workflows</span>
-            </div>
+            <span class="sticker">Open<br />to work</span>
+            <span class="tag">4th<br />yr</span>
           </div>
-        </section>
+        </div>
 
-        <section class="section section-grid">
-          <div class="card">
-            <h2>Core Skills</h2>
-            <div class="skills">
-              <span class="chip">HTML5</span>
-              <span class="chip">CSS3</span>
-              <span class="chip">JavaScript</span>
-              <span class="chip">React</span>
-              <span class="chip">Flutter</span>
-              <span class="chip">Firebase</span>
-              <span class="chip">Node.js</span>
-              <span class="chip">Python</span>
-              <span class="chip">Java</span>
-              <span class="chip">C++</span>
-              <span class="chip">SQL</span>
-              <span class="chip">MySQL</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <h2>Project Focus</h2>
-            <ul class="list">
-              <li>Responsive web application design and frontend implementation</li>
-              <li>Mobile-first interfaces and clean user experience flows</li>
-              <li>Backend logic, architecture thinking, and efficient problem solving</li>
-            </ul>
-          </div>
-        </section>
-
-        <section class="section card">
-          <h2>Selected Work</h2>
-          <div class="project-list">
-            <article class="project">
-              <h3>Portfolio & Personal Brand</h3>
-              <p>
-                Crafted a modern digital profile with a strong visual identity, custom styling, and accessible UI patterns.
-              </p>
-            </article>
-            <article class="project">
-              <h3>Web Product Interfaces</h3>
-              <p>
-                Focused on intuitive product experiences, responsive layouts, and clean component architecture.
-              </p>
-            </article>
-            <article class="project">
-              <h3>Mobile App Experiences</h3>
-              <p>
-                Designed streamlined app flows with user-friendly interactions and smooth navigation.
-              </p>
-            </article>
-            <article class="project">
-              <h3>System Design Thinking</h3>
-              <p>
-                Explored scalable backend patterns and data structures to solve real-world engineering problems.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <section class="section card">
-          <h2>Contact</h2>
-          <div class="contact-grid">
-            <div class="contact-item">Email: <a href="mailto:Wen1260h@gmail.com">Wen1260h@gmail.com</a></div>
-            <div class="contact-item">GitHub: <a href="https://github.com/QxQx55" target="_blank" rel="noreferrer">github.com/QxQx55</a></div>
-            <div class="contact-item">LinkedIn: <a href="https://www.linkedin.com/in/wendayew-fkadu-451483440/" target="_blank" rel="noreferrer">linkedin.com/in/wendayew-fkadu-451483440</a></div>
-          </div>
-        </section>
-
-        <section class="section card">
-          <h2>Documents</h2>
-          <p class="lead">Download my full-stack résumé and general motivation letter.</p>
-          <div class="cta-row">
-            <a class="button secondary" href="/Wendayew-Fkadu-Resume.pdf" download>Download Resume (PDF)</a>
-            <a class="button secondary" href="/Wendayew-Fkadu-Motivation-Letter.pdf" download>Download Motivation Letter (PDF)</a>
-          </div>
-        </section>
-
-        <footer class="footer">
-          <span>Open to software engineering opportunities</span>
-          <span>Available for collaboration</span>
-        </footer>
+        <div class="stage-foot">All work · 1 project +</div>
       </main>
+
+      <!-- RIGHT RAIL -->
+      <nav class="rail" aria-label="Contact and links">
+        <div class="rail-item">
+          <a class="rail-btn" href="https://github.com/QxQx55" target="_blank" rel="noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 1.8a10.2 10.2 0 0 0-3.23 19.88c.51.1.7-.22.7-.44v-1.7c-2.84.62-3.44-1.2-3.44-1.2-.46-1.18-1.13-1.5-1.13-1.5-.93-.63.07-.62.07-.62 1.02.08 1.56 1.05 1.56 1.05.9 1.55 2.37 1.1 2.95.85.1-.66.36-1.1.65-1.36-2.27-.26-4.65-1.14-4.65-5.05 0-1.12.4-2.03 1.05-2.74-.1-.26-.46-1.3.1-2.7 0 0 .86-.28 2.8 1.05a9.7 9.7 0 0 1 5.1 0c1.94-1.33 2.8-1.05 2.8-1.05.56 1.4.2 2.44.1 2.7.65.71 1.05 1.62 1.05 2.74 0 3.92-2.39 4.79-4.67 5.04.37.32.7.94.7 1.9v2.82c0 .22.18.55.71.44A10.2 10.2 0 0 0 12 1.8Z" />
+            </svg>
+          </a>
+          <span class="rail-label">GitHub</span>
+        </div>
+
+        <div class="rail-item">
+          <a class="rail-btn" href="https://www.linkedin.com/in/wendayew-fkadu-451483440/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05a4.2 4.2 0 0 1 3.75-2.05c4 0 4.75 2.6 4.75 6V21h-4v-5.5c0-1.3-.02-3-1.85-3s-2.1 1.42-2.1 2.9V21h-4V9Z" />
+            </svg>
+          </a>
+          <span class="rail-label">LinkedIn</span>
+        </div>
+
+        <div class="rail-item">
+          <a class="rail-btn" href="https://t.me/Wendayew" target="_blank" rel="noreferrer" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M21.9 4.3 18.7 19c-.24 1.06-.87 1.32-1.76.82l-4.86-3.58-2.35 2.26c-.26.26-.48.48-.98.48l.35-4.95 9-8.13c.39-.35-.085-.54-.6-.2L6.4 12.5 1.6 11c-1.04-.32-1.06-1.04.22-1.54l19-7.32c.87-.32 1.63.2 1.08 2.16Z" />
+            </svg>
+          </a>
+          <span class="rail-label">Telegram</span>
+        </div>
+
+        <div class="rail-item">
+          <a class="rail-btn" href="mailto:Wen1260h@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <rect x="3" y="5.5" width="18" height="13" rx="1.6" />
+              <path d="m3.8 7 8.2 6 8.2-6" />
+            </svg>
+          </a>
+          <span class="rail-label">Email</span>
+        </div>
+
+        <div class="rail-item">
+          <a class="rail-btn" href="/Wendayew-Fkadu-Resume.pdf" download aria-label="Download résumé">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <path d="M12 3.5v11" />
+              <path d="m7.5 10.5 4.5 4.5 4.5-4.5" />
+              <path d="M4 19.5h16" />
+            </svg>
+          </a>
+          <span class="rail-label">Résumé</span>
+        </div>
+
+        <div class="rail-item">
+          <a class="rail-btn solid" href="mailto:Wen1260h@gmail.com" aria-label="Say hello">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M9.3 20.4 4.6 15.7l1.6-1.6 3.1 3.1 8.5-8.5 1.6 1.6z" />
+            </svg>
+          </a>
+          <span class="rail-label">Hire</span>
+        </div>
+      </nav>
     </div>
+
+    <!-- MY PROJECTS -->
+    <section class="section" id="work">
+      <p class="eyebrow">My projects</p>
+      <h2 class="section-title">Work that runs in production.</h2>
+      <p class="section-note">
+        Filter by type: web, app or system. Every project links to a live build.
+      </p>
+
+      <div class="filters" aria-hidden="true">
+        <span class="on">All work</span>
+        <span>Web</span>
+        <span>App</span>
+        <span>System</span>
+      </div>
+
+      <div class="work">
+        <div class="work-visual">
+          <span class="num" aria-hidden="true">5★</span>
+          <span class="badge">System</span>
+          <span class="cap">Hotel operations dashboard</span>
+        </div>
+
+        <div class="work-body">
+          <span class="work-tech">React • Supabase • JavaScript</span>
+          <h3>5-Star Hotel Management System</h3>
+          <p>
+            A hotel operations dashboard for handling reservations, room bookings, guest service
+            flows, and management insights in a polished, responsive interface.
+          </p>
+          <a class="work-link" href="https://wende-5-star-hotel-pvq2.vercel.app/" target="_blank" rel="noreferrer">
+            Visit live site <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNICAL SETUP -->
+    <section class="section" id="skills">
+      <p class="eyebrow">My technical setup</p>
+      <h2 class="section-title">The tools behind the builds.</h2>
+      <p class="section-note">
+        Fourteen tools across three stacks — frontend, mobile and data, backend and databases.
+      </p>
+
+      <div class="skills">
+        <div class="skill-group">
+          <h3>Frontend Mastery</h3>
+          <ul>
+            <li><span class="dot" style="--dot: #e34f26"></span>HTML5</li>
+            <li><span class="dot" style="--dot: #1572b6"></span>CSS3</li>
+            <li><span class="dot" style="--dot: #f7df1e"></span>JavaScript</li>
+            <li><span class="dot" style="--dot: #61dafb"></span>React</li>
+          </ul>
+        </div>
+
+        <div class="skill-group">
+          <h3>Mobile &amp; Data</h3>
+          <ul>
+            <li><span class="dot" style="--dot: #02569b"></span>Flutter</li>
+            <li><span class="dot" style="--dot: #3ddc84"></span>Android Studio</li>
+            <li><span class="dot" style="--dot: #ff6f00"></span>Data Science</li>
+          </ul>
+        </div>
+
+        <div class="skill-group">
+          <h3>Backend &amp; DB</h3>
+          <ul>
+            <li><span class="dot" style="--dot: #339933"></span>Node.js</li>
+            <li><span class="dot" style="--dot: #777bb4"></span>PHP</li>
+            <li><span class="dot" style="--dot: #3776ab"></span>Python</li>
+            <li><span class="dot" style="--dot: #f89820"></span>Java</li>
+            <li><span class="dot" style="--dot: #00599c"></span>C++</li>
+            <li><span class="dot" style="--dot: #336791"></span>SQL</li>
+            <li><span class="dot" style="--dot: #4479a1"></span>MySQL</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <p class="eyebrow">// get in touch</p>
+      <h2 class="section-title">Have a project in mind?</h2>
+      <p class="section-note">
+        Drop me a message. I am currently open to exciting software engineering opportunities.
+      </p>
+
+      <div class="contact">
+        <div class="dotted">
+          <span class="key">Email</span>
+          <a href="mailto:Wen1260h@gmail.com">Wen1260h@gmail.com</a>
+        </div>
+        <div class="dotted">
+          <span class="key">GitHub</span>
+          <a href="https://github.com/QxQx55" target="_blank" rel="noreferrer">github.com/QxQx55</a>
+        </div>
+        <div class="dotted">
+          <span class="key">LinkedIn</span>
+          <a href="https://www.linkedin.com/in/wendayew-fkadu-451483440/" target="_blank" rel="noreferrer"
+            >linkedin.com/in/wendayew-fkadu-451483440</a
+          >
+        </div>
+        <div class="dotted">
+          <span class="key">Telegram</span>
+          <a href="https://t.me/Wendayew" target="_blank" rel="noreferrer">t.me/Wendayew</a>
+        </div>
+      </div>
+
+      <div class="socials">
+        <a href="https://github.com/QxQx55" target="_blank" rel="noreferrer" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 1.8a10.2 10.2 0 0 0-3.23 19.88c.51.1.7-.22.7-.44v-1.7c-2.84.62-3.44-1.2-3.44-1.2-.46-1.18-1.13-1.5-1.13-1.5-.93-.63.07-.62.07-.62 1.02.08 1.56 1.05 1.56 1.05.9 1.55 2.37 1.1 2.95.85.1-.66.36-1.1.65-1.36-2.27-.26-4.65-1.14-4.65-5.05 0-1.12.4-2.03 1.05-2.74-.1-.26-.46-1.3.1-2.7 0 0 .86-.28 2.8 1.05a9.7 9.7 0 0 1 5.1 0c1.94-1.33 2.8-1.05 2.8-1.05.56 1.4.2 2.44.1 2.7.65.71 1.05 1.62 1.05 2.74 0 3.92-2.39 4.79-4.67 5.04.37.32.7.94.7 1.9v2.82c0 .22.18.55.71.44A10.2 10.2 0 0 0 12 1.8Z" />
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/wendayew-fkadu-451483440/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05a4.2 4.2 0 0 1 3.75-2.05c4 0 4.75 2.6 4.75 6V21h-4v-5.5c0-1.3-.02-3-1.85-3s-2.1 1.42-2.1 2.9V21h-4V9Z" />
+          </svg>
+        </a>
+        <a href="https://t.me/Wendayew" target="_blank" rel="noreferrer" aria-label="Telegram">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M21.9 4.3 18.7 19c-.24 1.06-.87 1.32-1.76.82l-4.86-3.58-2.35 2.26c-.26.26-.48.48-.98.48l.35-4.95 9-8.13c.39-.35-.085-.54-.6-.2L6.4 12.5 1.6 11c-1.04-.32-1.06-1.04.22-1.54l19-7.32c.87-.32 1.63.2 1.08 2.16Z" />
+          </svg>
+        </a>
+        <a href="mailto:Wen1260h@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <rect x="3" y="5.5" width="18" height="13" rx="1.6" />
+            <path d="m3.8 7 8.2 6 8.2-6" />
+          </svg>
+        </a>
+      </div>
+
+      <p class="eyebrow" style="margin-top: 46px">Documents</p>
+      <div class="docs">
+        <div class="dotted">
+          <span class="key">Résumé</span>
+          <a href="/Wendayew-Fkadu-Resume.pdf" download>Download resume (PDF)</a>
+        </div>
+        <div class="dotted">
+          <span class="key">Letter</span>
+          <a href="/Wendayew-Fkadu-Motivation-Letter.pdf" download>Motivation letter (PDF)</a>
+        </div>
+        <div class="dotted">
+          <span class="key">Letter</span>
+          <a href="/Wendayew-Fkadu-Motivation-Letter.pdf" download>Motivation letter (PDF)</a>
+        </div>
+        <div class="dotted">
+          <span class="key">Résumé</span>
+          <a href="/Wendayew-Fkadu-Resume.pdf" download>Download resume (PDF)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING -->
+    <section class="closing">
+      <h2>Let's build something extraordinary.</h2>
+      <p>I am currently open to exciting software engineering opportunities.</p>
+      <div class="closing-actions">
+        <a class="btn-line fill" href="mailto:Wen1260h@gmail.com">Say hello →</a>
+      </div>
+    </section>
+
+    <footer>
+      <span>© 2026 Wendayew Fkadu</span>
+      <span>Frontend · Mobile &amp; Data · Backend</span>
+    
   </body>
 </html>
