@@ -1577,3 +1577,289 @@ i[class*=" bi-"],
     border-bottom-color: var(--primary-color);
   }
 }
+
+/* GitHub Activity Section */
+/* GitHub Status Bar */
+#githubStatusBar {
+  display: none;
+}
+
+.github-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(var(--primary-color-rgb), 0.1);
+  border: 1px solid rgba(var(--primary-color-rgb), 0.3);
+  border-radius: 6px;
+  padding: 12px 20px;
+  margin-bottom: 30px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--slate);
+  transition: background-color 0.3s var(--transition-timing), border-color 0.3s var(--transition-timing), opacity 0.3s var(--transition-timing);
+}
+
+.github-status-bar.error {
+  background-color: rgba(255, 107, 107, 0.1);
+  border-color: rgba(255, 107, 107, 0.3);
+}
+
+.github-status-bar.success {
+  background-color: rgba(100, 255, 218, 0.1);
+  border-color: rgba(100, 255, 218, 0.3);
+}
+
+.github-status-bar.warning {
+  background-color: rgba(255, 193, 7, 0.1);
+  border-color: rgba(255, 193, 7, 0.3);
+}
+
+.status-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-content i {
+  font-size: 16px;
+  color: var(--primary-color);
+}
+
+.github-status-bar.error .status-content i {
+  color: #ff6b6b;
+}
+
+.github-status-bar.success .status-content i {
+  color: var(--primary-color);
+}
+
+.status-refresh-btn {
+  background: transparent;
+  border: 1px solid rgba(var(--primary-color-rgb), 0.5);
+  color: var(--primary-color);
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.25s var(--transition-timing), transform 0.25s var(--transition-timing);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.status-refresh-btn:hover {
+  background-color: rgba(var(--primary-color-rgb), 0.1);
+  transform: scale(1.05);
+}
+
+.status-refresh-btn i {
+  font-size: 14px;
+}
+
+/* GitHub Contribution Calendar */
+.calendar-container {
+  max-width: 100%;
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* GitHub Calendar Library Overrides - Match Portfolio Theme */
+.calendar {
+  font-family: var(--font-sans);
+  color: var(--slate);
+  border: none;
+  background: transparent;
+}
+
+/* Calendar SVG Container */
+.calendar .calendar-graph {
+  margin: 0 auto;
+}
+
+/* Calendar text elements */
+.calendar text {
+  fill: var(--slate) !important;
+  font-size: 11px;
+  font-family: var(--font-mono);
+}
+
+/* Calendar grid squares - Custom green theme */
+.calendar .contrib-column .day[data-level="0"] {
+  fill: rgba(var(--primary-color-rgb), 0.05) !important;
+  stroke: rgba(var(--primary-color-rgb), 0.1) !important;
+  stroke-width: 1px;
+}
+
+.calendar .contrib-column .day[data-level="1"] {
+  fill: rgba(var(--primary-color-rgb), 0.3) !important;
+  stroke: rgba(var(--primary-color-rgb), 0.4) !important;
+}
+
+.calendar .contrib-column .day[data-level="2"] {
+  fill: rgba(var(--primary-color-rgb), 0.5) !important;
+  stroke: rgba(var(--primary-color-rgb), 0.6) !important;
+}
+
+.calendar .contrib-column .day[data-level="3"] {
+  fill: rgba(var(--primary-color-rgb), 0.7) !important;
+  stroke: rgba(var(--primary-color-rgb), 0.8) !important;
+}
+
+.calendar .contrib-column .day[data-level="4"] {
+  fill: var(--primary-color) !important;
+  stroke: var(--primary-color) !important;
+}
+
+/* Hover effect for calendar days */
+.calendar .contrib-column .day {
+  transition: transform 0.2s ease, filter 0.2s ease;
+  cursor: pointer;
+}
+
+.calendar .contrib-column .day:hover {
+  stroke-width: 2px !important;
+  transform: scale(1.15);
+  filter: brightness(1.2);
+}
+
+/* Calendar tooltips */
+.calendar-graph .calendar-graph-tooltip {
+  background-color: var(--secondary-color) !important;
+  color: var(--white-color) !important;
+  border: 1px solid var(--primary-color) !important;
+  border-radius: 4px !important;
+  padding: 8px 12px !important;
+  font-family: var(--font-mono) !important;
+  font-size: 12px !important;
+  box-shadow: 0 4px 12px -6px rgba(2, 12, 27, 0.7) !important;
+}
+
+.calendar-graph .calendar-graph-tooltip strong {
+  color: var(--primary-color) !important;
+}
+
+/* Legend styling */
+.calendar .legend {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 15px;
+  font-size: 11px;
+}
+
+.calendar .legend text {
+  fill: var(--slate) !important;
+}
+
+/* Responsive calendar */
+@media (max-width: 768px) {
+  .calendar text {
+    font-size: 10px;
+  }
+
+  .calendar .contrib-column .day {
+    rx: 1 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendar text {
+    font-size: 9px;
+  }
+}
+
+/* GitHub Profile Link */
+.github-link-wrapper {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.github-profile-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--primary-color);
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  padding: 14px 28px;
+  font-size: 14px;
+  font-family: var(--font-mono);
+  text-decoration: none;
+  transition: background-color 0.25s var(--transition-timing), transform 0.25s var(--transition-timing), box-shadow 0.25s var(--transition-timing);
+}
+
+.github-profile-btn:hover {
+  background-color: rgba(100, 255, 218, 0.1);
+  transform: translate(-4px, -4px);
+  box-shadow: 4px 4px 0 0 var(--primary-color);
+}
+
+/* Custom Tooltip System */
+[data-tooltip] {
+  position: relative;
+  cursor: help;
+}
+
+[data-tooltip]::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  padding: 8px 12px;
+  background-color: var(--secondary-color);
+  color: var(--white-color);
+  font-size: 12px;
+  font-family: var(--font-mono);
+  white-space: nowrap;
+  border-radius: 4px;
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 4px 12px -6px rgba(2, 12, 27, 0.7);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s var(--transition-timing), transform 0.3s var(--transition-timing);
+  z-index: 1000;
+}
+
+[data-tooltip]::after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--primary-color);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s var(--transition-timing);
+  z-index: 1000;
+}
+
+[data-tooltip]:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-12px);
+}
+
+[data-tooltip]:hover::after {
+  opacity: 1;
+}
+
+/* Tooltip adjustments for mobile */
+@media (max-width: 768px) {
+  [data-tooltip]::before {
+    white-space: normal;
+    max-width: 200px;
+    left: 0;
+    transform: translateX(0) translateY(-8px);
+  }
+
+  [data-tooltip]::after {
+    left: 20px;
+    transform: translateX(0);
+  }
+
+  [data-tooltip]:hover::before {
+    transform: translateX(0) translateY(-12px);
