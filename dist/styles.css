@@ -473,3 +473,103 @@ button {
 }
 
 /* Note: ::-moz-selection removed - modern Firefox (63+) supports ::selection */
+
+/* Fixed Social Sidebars */
+.fixed-left-sidebar {
+  position: fixed;
+  bottom: 0;
+  left: 40px;
+  right: auto;
+  z-index: 10;
+  color: var(--slate);
+}
+
+.fixed-right-sidebar {
+  position: fixed;
+  bottom: 0;
+  left: auto;
+  right: 40px;
+  z-index: 10;
+  color: var(--slate);
+}
+
+.social-icons-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-icons-list::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 90px;
+  margin: 0 auto;
+  background-color: var(--slate);
+}
+
+.social-icons-list li {
+  margin-bottom: 20px;
+}
+
+.social-icons-list li a {
+  padding: 10px;
+  display: inline-block;
+  text-decoration: none;
+  color: var(--slate);
+  transition: transform 0.25s var(--transition-timing), color 0.25s var(--transition-timing);
+}
+
+.fixed-left-sidebar .social-icons-list li a:hover {
+  transform: translateY(-3px);
+  color: var(--primary-color);
+}
+
+.social-icons-list li a i {
+  font-size: 20px;
+}
+
+.email-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.email-sidebar::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 90px;
+  margin: 0 auto;
+  background-color: var(--slate);
+}
+
+.email-link {
+  margin-bottom: 20px;
+  padding: 10px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  writing-mode: vertical-rl;
+  text-decoration: none;
+  color: var(--slate);
+  transition: transform 0.25s var(--transition-timing), color 0.25s var(--transition-timing);
+}
+
+.fixed-right-sidebar .email-link:hover {
+  transform: translateY(-3px);
+  color: var(--primary-color);
+}
+
+@media (max-width: 1080px) {
+
+  .fixed-left-sidebar,
+  .fixed-right-sidebar {
+    display: none;
+  }
+}
+
+/* Hero Section - Minimalist Design */
