@@ -1,0 +1,279 @@
+/**
+ * GitHub Contribution Calendar - Custom Styles
+ * Matches your portfolio's design system
+ */
+
+.github-contribution-calendar {
+  width: 100%;
+  padding: 20px;
+  background: transparent;
+  border-radius: 0;
+  border: none;
+}
+
+/* Header */
+.contribution-header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.contribution-total {
+  font-family: var(--font-mono, 'Courier New', monospace);
+  font-size: 14px;
+  color: var(--slate, #8892b0);
+}
+
+.contribution-total strong {
+  color: var(--primary-color, #64ffda);
+  font-weight: 600;
+}
+
+/* Calendar Graph */
+.contribution-graph {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+/* Month Labels */
+.contribution-months {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2px;
+  padding-left: 32px; /* Align with calendar grid */
+  margin-bottom: 4px;
+}
+
+.month-label {
+  font-size: 11px;
+  color: var(--slate, #8892b0);
+  font-family: var(--font-mono, monospace);
+}
+
+/* Weeks Grid */
+.contribution-weeks {
+  display: flex;
+  gap: 3px;
+  padding-left: 32px; /* Space for day labels if needed */
+}
+
+.contribution-week {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+/* Individual Day */
+.contribution-day {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: transform 0.1s ease, opacity 0.2s ease;
+  position: relative;
+}
+
+/* Contribution levels (fallback if GitHub colors not loaded) */
+.contribution-day[data-level="0"] {
+  background-color: #161b22;
+  border: 1px solid #1b1f23;
+}
+
+.contribution-day[data-level="1"] {
+  background-color: #0e4429;
+}
+
+.contribution-day[data-level="2"] {
+  background-color: #006d32;
+}
+
+.contribution-day[data-level="3"] {
+  background-color: #26a641;
+}
+
+.contribution-day[data-level="4"] {
+  background-color: #39d353;
+}
+
+/* Hover effects */
+.contribution-day:hover {
+  transform: scale(1.3);
+  z-index: 10;
+  opacity: 0.8;
+  outline: 1px solid var(--primary-color, #64ffda);
+  outline-offset: 1px;
+}
+
+/* Custom tooltip */
+.cal-tooltip {
+  position: fixed;
+  z-index: 1000;
+  padding: 5px 10px;
+  background: var(--secondary-color, #112240);
+  border: 1px solid rgba(100, 255, 218, 0.3);
+  border-radius: 4px;
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  color: var(--lightest-slate, #ccd6f6);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+
+.cal-tooltip.visible {
+  opacity: 1;
+}
+
+/* Legend */
+.contribution-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  margin-top: 12px;
+  padding-right: 8px;
+}
+
+.legend-label {
+  font-size: 11px;
+  color: var(--slate, #8892b0);
+  margin: 0 4px;
+}
+
+.legend-day {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+}
+
+.legend-day[data-level="0"] { background-color: #161b22; }
+.legend-day[data-level="1"] { background-color: #0e4429; }
+.legend-day[data-level="2"] { background-color: #006d32; }
+.legend-day[data-level="3"] { background-color: #26a641; }
+.legend-day[data-level="4"] { background-color: #39d353; }
+
+/* Loading State */
+.github-contribution-calendar.loading {
+  min-height: 200px;
+}
+
+/* Error State */
+.github-contribution-calendar.error {
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.error-message {
+  text-align: center;
+  color: var(--slate, #8892b0);
+}
+
+.error-message i {
+  font-size: 48px;
+  color: #ff6b6b;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.error-message p {
+  margin: 8px 0;
+  font-family: var(--font-mono, monospace);
+  font-size: 14px;
+}
+
+.error-detail {
+  font-size: 12px !important;
+  color: #ff6b6b;
+  font-style: italic;
+}
+
+.github-fallback-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 8px 16px;
+  background-color: var(--primary-color, #64ffda);
+  color: var(--bg-color, #0a192f);
+  text-decoration: none;
+  border-radius: 4px;
+  font-family: var(--font-mono, monospace);
+  font-size: 13px;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+
+.github-fallback-link:hover {
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .github-contribution-calendar {
+    padding: 16px;
+  }
+
+  .contribution-graph {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .contribution-weeks {
+    padding-left: 0;
+  }
+
+  .contribution-months {
+    padding-left: 0;
+    display: none; /* Hide month labels on mobile for cleaner look */
+  }
+
+  .contribution-day {
+    width: 9px;
+    height: 9px;
+  }
+
+  .legend-day {
+    width: 9px;
+    height: 9px;
+  }
+
+  .contribution-total {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contribution-day {
+    width: 7px;
+    height: 7px;
+  }
+
+  .legend-day {
+    width: 7px;
+    height: 7px;
+  }
+
+  .contribution-legend {
+    font-size: 10px;
+  }
+}
+
+
+/* Print styles */
+@media print {
+  .github-contribution-calendar {
+    border: 1px solid #000;
+    break-inside: avoid;
+  }
+
+  .contribution-day {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
