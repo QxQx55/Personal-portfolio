@@ -98,6 +98,43 @@
 <body>
   <!-- Skip to Main Content Link for Keyboard Navigation -->
   <a href="#main-content" class="skip-to-content">Skip to main content</a>
-<body>
+
+  <!-- Animated Loading Overlay (W & F Monogram) -->
+  <div id="loading-overlay" role="status" aria-live="polite" aria-label="Loading portfolio">
+    <svg class="loader-monogram" viewBox="0 0 126 70" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- W: (6,10) -> (19,60) -> (33,26) -> (47,60) -> (60,10) -->
+      <path class="monogram-path" d="M 6,10 L 19,60 L 33,26 L 47,60 L 60,10" pathLength="1" />
+      <!-- F vertical stem: (76,60) -> (76,10) -->
+      <path class="monogram-path" d="M 76,60 L 76,10" pathLength="1" />
+      <!-- F top horizontal bar: (76,10) -> (118,10) -->
+      <path class="monogram-path" d="M 76,10 L 118,10" pathLength="1" />
+      <!-- F middle horizontal bar: (76,34) -> (108,34) -->
+      <path class="monogram-path" d="M 76,34 L 108,34" pathLength="1" />
+    </svg>
+  </div>
+
+  <!-- Navigation Menu -->
+  <nav class="navbar fixed-top" id="main-nav" aria-label="Main navigation">
+    <div class="nav-container">
+      <!-- Desktop Navigation Links (Injected & managed by JS) -->
+      <div class="desktop-nav"></div>
+
+      <!-- Hamburger Button for Mobile -->
+      <button class="hamburger-button" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Backdrop -->
+  <div class="mobile-menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
+
+  <!-- Mobile Menu Overlay -->
+  <aside class="mobile-menu-overlay" id="mobileMenu" aria-hidden="true">
+    <ul class="mobile-menu-items"></ul>
+  </aside>
+
 </body>
 </html>
