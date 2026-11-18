@@ -757,6 +757,112 @@
     </section>
 
     <!-- GitHub Activity Section -->
-</main>
+    <section id="github" class="container github-section">
+      <h2 class="numbered-heading" data-aos="fade-up">GitHub Activity</h2>
+
+      <!-- GitHub Stats Status Bar -->
+      <div class="github-status-bar" id="githubStatusBar" data-aos="fade-up" data-aos-delay="25">
+        <div class="status-content">
+          <i class="bi bi-info-circle"></i>
+          <span id="statusMessage">Loading GitHub data...</span>
+        </div>
+        <button class="status-refresh-btn" id="statusRefreshBtn"
+          data-tooltip="Click to refresh language data • Force fetch from GitHub API" aria-label="Refresh GitHub Data">
+          <i class="bi bi-arrow-clockwise"></i>
+        </button>
+      </div>
+
+      <!-- Top Languages Section -->
+      <div class="top-languages-section" data-aos="fade-up" data-aos-delay="75">
+        <h3 class="section-subtitle">Most Used Languages</h3>
+        <div class="top-languages-grid" id="topLanguages">
+          <!-- Language badges dynamically populated by github.js -->
+        </div>
+      </div>
+
+      <!-- GitHub Contribution Calendar -->
+      <div data-aos="fade-up" data-aos-delay="100">
+        <div class="calendar-container">
+          <!-- Interactive GitHub Calendar rendered here -->
+          <div class="calendar" id="github-calendar">
+            Loading contribution calendar...
+          </div>
+        </div>
+      </div>
+
+      <!-- GitHub Profile Link -->
+      <div class="github-link-wrapper" data-aos="fade-up" data-aos-delay="200">
+        <a href="https://github.com/QxQx55" target="_blank" rel="noopener noreferrer" class="github-profile-btn">
+          <i class="bi bi-github"></i>
+          View Full GitHub Profile
+        </a>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section" data-aos="fade-up">
+      <span class="contact-overline">07. What's Next?</span>
+      <h2 class="contact-title">Get In Touch</h2>
+      <p class="contact-description">
+        I am currently in my fourth year at Dire Dawa University and open to full-stack developer roles, software engineering internships, and collaborative projects. Drop me a line &mdash; my inbox is always open!
+      </p>
+
+      <!-- Direct Contact Pills -->
+      <div class="contact-direct-info" data-aos="fade-up" data-aos-delay="100">
+        <a href="mailto:wen1260h@gmail.com" class="contact-info-pill">
+          <i class="bi bi-envelope-at-fill"></i>
+          <span>wen1260h@gmail.com</span>
+        </a>
+        <a href="tel:+251947506440" class="contact-info-pill">
+          <i class="bi bi-telephone-fill"></i>
+          <span>+251 947506440</span>
+        </a>
+        <div class="contact-info-pill">
+          <i class="bi bi-geo-alt-fill"></i>
+          <span>Dire Dawa, Ethiopia</span>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center align-items-center flex-wrap gap-3 mt-4">
+        <a href="mailto:wen1260h@gmail.com" class="contact-button">Say Hello</a>
+        <a href="https://t.me/Wendayew" target="_blank" rel="noopener noreferrer" class="contact-button contact-btn-secondary">
+          <i class="bi bi-telegram me-2"></i>Message on Telegram
+        </a>
+        <a href="https://www.linkedin.com/in/wendayew-fkadu-451483440/" target="_blank" rel="noopener noreferrer" class="contact-button contact-btn-secondary">
+          <i class="bi bi-linkedin me-2"></i>LinkedIn Profile
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer injected by main.js renderFooter() -->
+  <footer id="site-footer"></footer>
+
+  <!-- AOS Animation Library Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"
+    integrity="sha384-wziAfh6b/qT+3LrqebF9WeK4+J5sehS6FA10J1t3a866kJ/fvU5UwofWnQyzLtwu" crossorigin="anonymous"></script>
+
+  <!-- Site-wide configuration — must load before main.js and GitHub scripts -->
+  <script src="static/js/site-config.js"></script>
+
+  <!-- Main JavaScript File -->
+  <script src="static/js/main.js"></script>
+
+  <!-- GitHub token config -->
+  <script src="static/js/config.js"></script>
+  <!-- Shared localStorage cache -->
+  <script src="static/js/cache-manager.js"></script>
+  <!-- GitHub Calendar Custom Implementation -->
+  <script src="static/js/github-calendar-custom.js"></script>
+
+  <!-- GitHub Integration -->
+  <script src="static/js/github.js"></script>
+
+  <!-- Analytics tracking -->
+  <script src="static/js/analytics.js"></script>
+
+  <!-- Cal.com embed -->
+  <script src="static/js/cal-embed.js"></script>
 </body>
+
 </html>
